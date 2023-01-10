@@ -13,7 +13,28 @@ public class NotesController : Controller
         _logger = logger;
     }
 
-    public IActionResult Notes()
+    // public IActionResult Notes()
+    // {
+    //     return View();
+    // }
+
+    public IActionResult Notes(string username)
+    {
+        ViewData["currentUser"]=$"{username}";
+        return View();
+    }
+
+    public IActionResult ViewNote()
+    {
+        return View();
+    }
+
+    public IActionResult UpdateNote()
+    {
+        return View();
+    }
+
+    public IActionResult AddNote()
     {
         return View();
     }

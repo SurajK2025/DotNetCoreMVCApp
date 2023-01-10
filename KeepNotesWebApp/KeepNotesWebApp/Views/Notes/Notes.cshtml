@@ -2,7 +2,29 @@
     ViewData["Title"] = "Notes Page";
 }
 
+    <a href="/notes/addnote"><button>Add New Note</button></a>
+    <table>
+        <tr>
+            <td>Id</td>
+            <td>Title</td>
+            <td>Date</td>
+            <td>View</td>
+            <td>Update</td>
+            <td>Delete</td>
+        </tr>
+    </table>
+
 @{
+
+    <tr>
+        <td><a href=""></a></td>
+        <td><a href=""></a></td>
+        <td><a href=""></a></td>
+        <td><a href="">View</a></td>
+        <td><a href="">Update</a></td>
+        <td><a href="">Delete</a></td>
+    </tr>
+
     string name = (string) ViewData["currentUser"];
     @if (name != null)
     {

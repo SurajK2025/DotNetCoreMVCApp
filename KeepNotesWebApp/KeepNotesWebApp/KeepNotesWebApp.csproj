@@ -8,6 +8,7 @@
 
   <ItemGroup>
     <PackageReference Include="mysql.data" Version="8.0.31" />
+    <PackageReference Include="System.Configuration.ConfigurationManager" Version="4.4.1" />
   </ItemGroup>
 
   <ItemGroup>

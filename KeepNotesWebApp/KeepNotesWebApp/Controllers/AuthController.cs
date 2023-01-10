@@ -27,9 +27,7 @@ public class AuthController : Controller
     {
         //Validate from database.
         Console.WriteLine($"User logged in {username} {password}");
-        //Not working check why??
-        ViewData["currentUser"]=$"{username}";
-        return RedirectToAction("Notes", "Notes");
+        return RedirectToAction("Notes", "Notes", new { username = $"{username}" });
     }
 
     public IActionResult Saveuser(string name, string username, string password)
