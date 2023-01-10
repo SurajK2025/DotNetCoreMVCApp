@@ -34,9 +34,7 @@ public class AuthController : Controller
     {
         //Register user to database.
         Console.WriteLine($"User registered: {name} {username} {password}");
-        //Not working check why??
-        ViewData["currentUser"]=$"{username}";
-        return RedirectToAction("Index", "Home");
+        return RedirectToAction("Index", "Home", new { username = $"{username}" });
     }
 
     [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

@@ -13,8 +13,9 @@ public class HomeController : Controller
         _logger = logger;
     }
 
-    public IActionResult Index()
+    public IActionResult Index(string username)
     {
+        ViewData["currentUser"]=$"{username}";
         return View();
     }
 

@@ -1,5 +1,5 @@
 @{
-    ViewData["Title"] = "Notes Page";
+    ViewData["Title"] = "All Notes";
 }
 
     <a href="/notes/addnote"><button>Add New Note</button></a>
@@ -26,8 +26,11 @@
     </tr>
 
     string name = (string) ViewData["currentUser"];
-    @if (name != null)
+    @if (name != "")
     {
         <h3>All @name specific notes here.</h3>
+    }
+    else{
+        <h3>No Content</h3>
     }
 }

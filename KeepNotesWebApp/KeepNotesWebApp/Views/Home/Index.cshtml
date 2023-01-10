@@ -4,7 +4,7 @@
 
 @{
     string name = (string) ViewData["currentUser"];
-    @if ( name == null)
+    @if ( name == "")
     {
         <div class="text-center">
             <h1 class="display-4">Welcome</h1>
