@@ -1,0 +1,11 @@
+@{
+    ViewData["Title"] = "Notes Page";
+}
+
+@{
+    string name = (string) ViewData["currentUser"];
+    @if (name != null)
+    {
+        <h3>All @name specific notes here.</h3>
+    }
+}
