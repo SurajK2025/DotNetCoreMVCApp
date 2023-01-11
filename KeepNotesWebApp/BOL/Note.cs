@@ -1,6 +1,6 @@
 namespace BOL;
 
-class Note{
+public class Note{
     public int noteid;
     public string title;
     public string description;

@@ -1,6 +1,6 @@
 namespace BOL;
 
-class User {
+public class User {
     public int userid;
     public string name;
     public string username;
