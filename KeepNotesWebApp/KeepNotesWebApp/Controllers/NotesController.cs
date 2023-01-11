@@ -1,6 +1,7 @@
 using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 using KeepNotesWebApp.Models;
+using DAL;
 
 namespace KeepNotesWebApp.Controllers;
 
@@ -13,14 +14,17 @@ public class NotesController : Controller
         _logger = logger;
     }
 
-    public IActionResult AllNotes(string username)
+    public IActionResult AllNotes()
     {
-        ViewData["currentUser"]=$"{username}";
+        List<Note> notes = KeepNotesDBConnectorApi.GetAllNotes();
+        ViewData["noteslist"] = notes;
         return View();
     }
 
-    public IActionResult UpdateNote()
+    public IActionResult UpdateNote(int id)
     {
+        Note note = KeepNotesDBConnectorApi.GetNoteByNoteId(id);
+        ViewData["note"] = note;
         return View();
     }
 
