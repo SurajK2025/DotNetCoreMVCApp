@@ -28,9 +28,21 @@ public class NotesController : Controller
         return View();
     }
 
+    public IActionResult SaveUpdatedNote(string title, string description)
+    {
+        Console.WriteLine($"{title} {description}");
+        return Redirect("AllNotes");
+    }
+
     public IActionResult AddNote()
     {
         return View();
+    }
+
+    public IActionResult SaveNewNote(string title, string description)
+    {
+        Console.WriteLine($"{title} {description}");
+        return Redirect("AllNotes");
     }
 
     [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

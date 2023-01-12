@@ -2,7 +2,18 @@
     ViewData["Title"] = "Add A Note";
 }
 
-<form action="">
-    <input type="text" name="title" id="" placeholder="Title">
-    <textarea name="description" id="" cols="30" rows="10" placeholder="Add a description for your note ..."></textarea>
+<form action="/notes/savenewnote">
+<div class="addnotecontainer">
+    <div class="parent">
+        <div class="header">
+            <input type="text" name="title" id="" placeholder="Title">
+        </div>
+        <div class="body">
+            <textarea name="description" id="" cols="30" rows="10" placeholder="Add a description for your note ..."></textarea>
+        </div>
+        <div class="footer">
+            <input type="submit" value="Save">
+        </div>
+    </div>
+</div> 
 </form>

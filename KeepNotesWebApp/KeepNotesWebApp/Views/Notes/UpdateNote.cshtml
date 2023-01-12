@@ -5,14 +5,14 @@
 @{
     Note note = (Note) ViewData["note"];
     <div class="updatenotecontainer">
-        <form action="">
+        <form action="/notes/saveupdatednote">
             <div class="parent">
                 <div class="header">
-                    <input type="text" name="" id="" value="@note.Title">
+                    <input type="text" name="title" id="" value="@note.Title">
                     <h6>Date: @note.Date</h6>
                 </div>
                 <div class="body">
-                    <textarea name="" id="" cols="30" rows="10">@note.Description</textarea>
+                    <textarea name="description" id="" cols="30" rows="10">@note.Description</textarea>
                 </div>
                 <div class="footer">
                     <a href=""><input type="submit" value="Update"></a>
