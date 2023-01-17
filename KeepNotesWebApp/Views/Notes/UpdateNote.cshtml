@@ -7,6 +7,7 @@
     <div class="updatenotecontainer">
         <form action="/notes/SaveUpdatedNote">
             <div class="parent">
+                <a href="/notes/allnotes"><button>Back</button></a>
                 <div class="header">
                     <input type="text" name="Title" id="" value="@note.Title">
                     <h6>Date: @note.Date</h6>
@@ -16,6 +17,7 @@
                 </div>
                 <div class="footer">
                     <a href=""><input type="submit" value="Update"></a>
+                    <a href="/notes/deletenote/@note.Noteid"><button>Delete</button></a>
                 </div>
             </div>
         </form>

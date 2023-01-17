@@ -50,6 +50,12 @@ public class NotesController : Controller
         return Redirect("AllNotes");
     }
 
+    public IActionResult DeleteNote(int noteid)
+    {
+        KeepNotesDBConnectorApi.DeleteNote(noteid);
+        return RedirectToAction("AllNotes", "Notes");
+    }
+
     [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
     public IActionResult Error()
     {

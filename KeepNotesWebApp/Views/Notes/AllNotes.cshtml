@@ -15,27 +15,17 @@
                     <td>Title</td>
                     <td>Date</td>
                     <td>ViewNote</td>
-                    <td>DeleteNote</td>
                 </tr>
                 @{
-                    @* User user = Session["userInfo"] as User; *@
-                    if (@* user == null *@ false)
+                    List<Note> notes = (List<Note>)ViewData["noteslist"];
+                    @foreach (Note note in notes)
                     {
-                        <h1>You need to login.</h1>
-                    }
-                    else
-                    {
-                        List<Note> notes = (List<Note>)ViewData["noteslist"];
-                        @foreach (Note note in notes)
-                        {
-                            <tr>
-                                <td>@note.Noteid</td>
-                                <td>@note.Title</td>
-                                <td>@note.Date</td>
-                                <td><a href="/Notes/UpdateNote/@note.Noteid">View</a></td>
-                                <td><a href="/Notes/UpdateNote/@note.Noteid">Delete</a></td>
-                            </tr>
-                        }
+                        <tr>
+                            <td>@note.Noteid</td>
+                            <td>@note.Title</td>
+                            <td>@note.Date</td>
+                            <td><a href="/notes/updatenote/@note.Noteid">View</a></td>
+                        </tr>
                     }
                 }
             </table>

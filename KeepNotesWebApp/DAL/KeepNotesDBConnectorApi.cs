@@ -64,7 +64,6 @@ public class KeepNotesDBConnectorApi
                     Userid = int.Parse(reader["userid"].ToString())
                 };
             }
-
         }
         catch (Exception e)
         {
@@ -125,10 +124,10 @@ public class KeepNotesDBConnectorApi
             {
                 user = new User
                 {
-                    userid = int.Parse(reader["userid"].ToString()),
-                    name = reader["name"].ToString(),
-                    username = reader["username"].ToString(),
-                    password = reader["password"].ToString()  
+                    Userid = int.Parse(reader["userid"].ToString()),
+                    Name = reader["name"].ToString(),
+                    Username = reader["username"].ToString(),
+                    Password = reader["password"].ToString()  
                 };
             }
         }
@@ -148,7 +147,7 @@ public class KeepNotesDBConnectorApi
         try
         {
             con.Open();
-            string query = $"insert into users(name, username, password) values('{user.name}', '{user.username}', '{user.password}')";
+            string query = $"insert into users(name, username, password) values('{user.Name}', '{user.Username}', '{user.Password}')";
             MySqlCommand command = new MySqlCommand(query, con);
             command.ExecuteNonQuery();
         }
@@ -187,6 +186,25 @@ public class KeepNotesDBConnectorApi
         {
             con.Open();
             string query = $"insert into notes(title, description, createddate, userid) values('{note.Title}', '{note.Description}', Curdate(), {userid})";
+            MySqlCommand command = new MySqlCommand(query, con);
+            command.ExecuteNonQuery();
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e.Message);
+        }
+        finally
+        {
+            con.Close();
+        }
+    }
+
+    public static void DeleteNote(int noteid){
+        MySqlConnection con = new MySqlConnection(conString);
+        try
+        {
+            con.Open();
+            string query = $"delete from notes where noteid={noteid}";
             MySqlCommand command = new MySqlCommand(query, con);
             command.ExecuteNonQuery();
         }

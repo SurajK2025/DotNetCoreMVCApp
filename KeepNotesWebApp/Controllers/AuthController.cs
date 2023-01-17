@@ -27,10 +27,10 @@ public class AuthController : Controller
 
     public IActionResult Validate(User user)
     {
-        User validUser = KeepNotesDBConnectorApi.GetUserByUsername(user.username);
-        if(validUser.password == user.password){
-            HttpContext.Session.SetString("username", validUser.username);
-            HttpContext.Session.SetString("userid", validUser.userid.ToString());
+        User validUser = KeepNotesDBConnectorApi.GetUserByUsername(user.Username);
+        if(validUser.Password == user.Password){
+            HttpContext.Session.SetString("username", validUser.Username);
+            HttpContext.Session.SetString("userid", validUser.Userid.ToString());
             return RedirectToAction("AllNotes", "Notes");
         }
         Console.WriteLine("Invalid User");
