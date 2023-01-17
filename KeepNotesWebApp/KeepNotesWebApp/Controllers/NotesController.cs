@@ -16,21 +16,25 @@ public class NotesController : Controller
 
     public IActionResult AllNotes()
     {
-        List<Note> notes = KeepNotesDBConnectorApi.GetAllNotes();
+        int userid = Convert.ToInt32(HttpContext.Session.GetString("userid"));
+        List<Note> notes = KeepNotesDBConnectorApi.GetAllNotesByUserId(userid);
         ViewData["noteslist"] = notes;
         return View();
     }
 
     public IActionResult UpdateNote(int id)
     {
+        HttpContext.Session.SetString("updateNoteid", id.ToString());
         Note note = KeepNotesDBConnectorApi.GetNoteByNoteId(id);
         ViewData["note"] = note;
         return View();
     }
 
-    public IActionResult SaveUpdatedNote(string title, string description)
+    public IActionResult SaveUpdatedNote(Note note)
     {
-        Console.WriteLine($"{title} {description}");
+        Console.WriteLine(note.ToString());
+        note.Noteid = Convert.ToInt32(HttpContext.Session.GetString("updateNoteid"));
+        KeepNotesDBConnectorApi.UpdateNoteNyNoteId(note);
         return Redirect("AllNotes");
     }
 
@@ -39,9 +43,10 @@ public class NotesController : Controller
         return View();
     }
 
-    public IActionResult SaveNewNote(string title, string description)
+    public IActionResult SaveNewNote(Note note)
     {
-        Console.WriteLine($"{title} {description}");
+        int userid = Convert.ToInt32(HttpContext.Session.GetString("userid"));
+        KeepNotesDBConnectorApi.InsertNewNote(note, userid);
         return Redirect("AllNotes");
     }
 
