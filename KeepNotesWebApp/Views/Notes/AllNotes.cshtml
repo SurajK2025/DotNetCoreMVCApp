@@ -15,6 +15,7 @@
                     <td>Title</td>
                     <td>Date</td>
                     <td>ViewNote</td>
+                    <td>DeleteNote</td>
                 </tr>
                 @{
                     List<Note> notes = (List<Note>)ViewData["noteslist"];
@@ -25,6 +26,7 @@
                             <td>@note.Title</td>
                             <td>@note.Date</td>
                             <td><a href="/notes/updatenote/@note.Noteid">View</a></td>
+                            <td><a href="/notes/DeleteNote/@note.Noteid">Delete</a></td>
                         </tr>
                     }
                 }
